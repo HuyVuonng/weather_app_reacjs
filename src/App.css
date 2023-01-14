@@ -72,6 +72,15 @@ body.cold #weather {
 	background-image: url(../public/cold.png);
 }
 
+body.snow {
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1)),
+		url(../public/snow.jfif) no-repeat center/cover;
+}
+
+body.snow #weather {
+	background-image: url(../public/snow.jfif);
+}
+
 #weather {
 	min-width: 350px;
 	height: 600px;

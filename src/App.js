@@ -26,17 +26,26 @@ const [search, setsearch] = useState("ha noi")
 //     .then(res => res.json()).then(weathers=>setweather(weathers))
 
 async function fetchData() {
+    if(await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=8641075dda9ea5d5c961c48c00929bec`).then(data=>data.status)!==200){
+        await fetch(`https://api.openweathermap.org/data/2.5/weather?q=hanoi&units=metric&appid=8641075dda9ea5d5c961c48c00929bec`)
+        .then(res => res.json()).then(weathers=>setweather(weathers)).catch(err => Promise.reject()) 
+        alert("Please search with English")
+       
+    }
+    else{
+        await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=8641075dda9ea5d5c961c48c00929bec`)
+        .then(res => res.json()).then(weathers=>setweather(weathers)).catch(err => Promise.reject()) 
+       
+    }
       
-            await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=8641075dda9ea5d5c961c48c00929bec`)
- .then(res => res.json()).then(weathers=>setweather(weathers))
-   
-           
+            
       }
      
       fetchData();
        
       return ()=>{}
     }, [search]);
+
 
 const enterpress=(key,target)=>{
       if(key === 13){
@@ -46,11 +55,20 @@ const enterpress=(key,target)=>{
     
 
 }
-  console.log(weathers)
+//   console.log(weathers)
   if (!weathers) return <div>Loading...</div>;
   
-  else{
-    { weathers.main.temp >= 18? document.body.className = 'hot' : document.body.className = 'cold'}
+  else{weathers.main.temp >= 18? document.body.className = 'hot' : document.body.className = 'cold'
+    { if(weathers.main.temp>18){
+        document.body.className = 'hot'
+        }
+    else if(weathers.main.temp<=18&&weathers.main.temp>=5){
+        document.body.className = 'cold'
+    }
+    else{
+        document.body.className = 'snow'
+    }
+    }
     return(
         <div id="weather">
            
