@@ -2,17 +2,17 @@ import styles from "./loading.module.css";
 
 function Loading() {
     return (
-        <div class={styles.center}>
-  <div class={styles.wave}></div>
-  <div class={styles.wave}></div>
-  <div class={styles.wave}></div>
-  <div class={styles.wave}></div>
-  <div class={styles.wave}></div>
-  <div class={styles.wave}></div>
-  <div class={styles.wave}></div>
-  <div class={styles.wave}></div>
-  <div class={styles.wave}></div>
-  <div class={styles.wave}></div>
+        <div className={styles.center}>
+  <div className={styles.wave}></div>
+  <div className={styles.wave}></div>
+  <div className={styles.wave}></div>
+  <div className={styles.wave}></div>
+  <div className={styles.wave}></div>
+  <div className={styles.wave}></div>
+  <div className={styles.wave}></div>
+  <div className={styles.wave}></div>
+  <div className={styles.wave}></div>
+  <div className={styles.wave}></div>
 </div>
     );
 }
